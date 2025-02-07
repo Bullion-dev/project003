@@ -1,0 +1,43 @@
+/* Reset default margin, padding, and set box-sizing to border-box */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Styling for the full-screen section containing the loader */
+section {
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background: blue; /* Background color of the section */
+    display: flex; /* Flexbox for centering */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+}
+
+/* Styling for each dot in the loader animation */
+section .dot span {
+    width: 10px;
+    height: 10px;
+    background: #fff; /* White color for the dots */
+    border-radius: 50%; /* Makes the dots circular */
+    position: absolute; /* Absolute positioning for placement */
+    
+    /* Rotation and translation to arrange dots in a circular pattern */
+    transform: rotate(calc(var(--i) * (360deg / 15))) translateY(40px);
+    
+    /* Animation to make the dots fade in and out */
+    animation: round 1.5s linear infinite;
+    animation-delay: calc(var(--i) * 0.1s); /* Staggered delay for sequential effect */
+    opacity: 0; /* Initially hidden dots */
+}
+
+/* Keyframes animation to create the fading effect of dots */
+@keyframes round {
+    0% {
+        opacity: 1; /* Dots become visible */
+    }
+    100% {
+        opacity: 0; /* Dots fade out */
+    }
+}
